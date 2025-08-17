@@ -1,7 +1,5 @@
 import { YouTubePlayer } from "@/components/youtube-player"
 import { PhraseBubble } from "@/components/phrase-bubble"
-import { DialogueSection } from "@/components/dialogue-section"
-import AudioPrimer from "@/components/audio-primer"
 import { Button } from "@/components/ui/button"
 import { scenes } from "@/src/data/scenes"
 import { ArrowLeft } from "lucide-react"
@@ -77,15 +75,11 @@ export default function ScenePage({ params }: ScenePageProps) {
         <div className="max-w-2xl mx-auto">
           <h1 className="text-2xl font-bold text-gray-900 mb-6 text-center">{scene.title}</h1>
 
-          <AudioPrimer />
-
           {scene.videoUrl && (
             <div className="mb-8">
               <YouTubePlayer videoUrl={scene.videoUrl} title={scene.title} />
             </div>
           )}
-
-          {scene.id === "izakaya" && <DialogueSection dialogues={izakayaDialogues} />}
 
           <div className="space-y-4">
             <h2 className="text-lg font-semibold text-gray-800 mb-4">フレーズ練習</h2>

@@ -2,6 +2,7 @@ export type Phrase = {
   id: string
   ko: string // 韓国語
   ja: string // 日本語訳
+  audioUrl?: string // 音声ファイルのパス
 }
 
 export type Scene = {
@@ -18,24 +19,28 @@ export const scenes: Scene[] = [
     videoUrl: "https://www.youtube-nocookie.com/embed/DMfrfytPrMU?rel=0&loop=1&playlist=DMfrfytPrMU",
     phrases: [
       {
-        id: "1",
-        ko: "안녕하세요! 두 명이에요.",
-        ja: "こんにちは！2名です。",
+        id: "p1",
+        ko: "사장님〜! 추천 메뉴가 뭐예요?",
+        ja: "店長さん〜！おすすめは何ですか？",
+        audioUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/p1-3Q6TXi1flYImO8n9mamHV2mfhGfIZQ.mp3",
       },
       {
-        id: "2",
-        ko: "맥주 두 잔 주세요.",
-        ja: "ビール2杯ください。",
+        id: "p2",
+        ko: "저희 김치전이 정말 맛있어요!",
+        ja: "うちのキムチチヂミが本当に美味しいです！",
+        audioUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/p2-rj5RgP8tnj6GNBJhINtCcWfg8Ba08I.mp3",
       },
       {
-        id: "3",
-        ko: "이거 맛있어요!",
-        ja: "これ美味しいです！",
+        id: "p3",
+        ko: "그럼 김치전 하나 주세요.",
+        ja: "じゃあキムチチヂミを1つください。",
+        audioUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/p3-PigIE2ifxn9KHWZL27X5t6IEIWgAOW.mp3",
       },
       {
-        id: "4",
-        ko: "계산서 주세요.",
-        ja: "お会計をお願いします。",
+        id: "p4",
+        ko: "네, 잠시만 기다려 주세요.",
+        ja: "はい、少々お待ちください。",
+        audioUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/p4-lPiNJQWlYwVCGtwwSixZ7YBbEHIxKH.mp3",
       },
     ],
   },
