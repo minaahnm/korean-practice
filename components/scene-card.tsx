@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import type { Scene } from "@/src/data/scenes"
 import Link from "next/link"
 import Image from "next/image"
@@ -24,26 +24,33 @@ export function SceneCard({ scene }: SceneCardProps) {
   return (
     <Link href={isComingSoon ? "#" : `/scene/${scene.id}`}>
       <Card
-        className={`transition-all duration-200 ${
-          isComingSoon ? "opacity-60 cursor-not-allowed" : "hover:shadow-lg hover:scale-105 cursor-pointer"
+        className={`transition-all duration-300 border-0 shadow-lg rounded-3xl overflow-hidden ${
+          isComingSoon
+            ? "opacity-60 cursor-not-allowed bg-gray-50"
+            : "hover:shadow-xl hover:scale-[1.02] cursor-pointer bg-white"
         }`}
       >
-        <CardHeader className="pb-3">
-          <CardTitle className="text-lg font-semibold text-center">{scene.title}</CardTitle>
-        </CardHeader>
-        <CardContent className="pt-0">
-          <div className="relative h-24 rounded-lg overflow-hidden">
+        <CardContent className="p-0">
+          <div className="relative h-40 overflow-hidden">
             <Image
               src={getSceneImage(scene.id) || "/placeholder.svg"}
               alt={`${scene.title}のイメージ`}
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-              {isComingSoon && (
-                <span className="text-sm text-white font-medium bg-black/50 px-3 py-1 rounded-full">Coming Soon</span>
-              )}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+
+            <div className="absolute bottom-0 left-0 right-0 p-6">
+              <h3 className="text-xl font-bold text-white mb-1">{scene.title}</h3>
             </div>
+
+            {isComingSoon && (
+              <div className="absolute top-4 right-4">
+                <span className="text-xs text-gray-600 font-semibold bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full border border-gray-200">
+                  Coming Soon
+                </span>
+              </div>
+            )}
           </div>
         </CardContent>
       </Card>
